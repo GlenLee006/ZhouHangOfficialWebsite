@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社团简介 - 吉林大学周行诗社</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 新增的部门介绍页面样式 */
+        .intro-header {
+            background: linear-gradient(rgba(93, 64, 55, 0.9), rgba(93, 64, 55, 0.95)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%235d4037"/><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="%23a68b5c" stroke-width="0.5" fill="none"/></svg>');
+            background-size: cover;
+            padding: 120px 0 80px;
+            text-align: center;
+            color: #f9f5e8;
+            margin-bottom: 60px;
+        }
+
+        .intro-header h1 {
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: #D9CB9E;
+        }
+
+        .intro-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .intro-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .departments-intro {
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .departments-intro h2 {
+            font-size: 2.2rem;
+            color: #5D4037;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .departments-intro h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #A68B5C;
+        }
+
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .department-card {
+            background: #f9f5e8;
+            border: 1px solid #A1887F;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .department-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .department-icon {
+            font-size: 3.5rem;
+            color: #A68B5C;
+            margin-bottom: 25px;
+        }
+
+        .department-card h3 {
+            font-size: 1.8rem;
+            color: #5D4037;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #D9CB9E;
+        }
+
+        .department-card p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .department-card ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+
+        .department-card ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .department-card ul li:before {
+            content: "•";
+            color: #D9CB9E;
+            font-size: 1.8rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .department-head {
+            display: flex;
+            align-items: center;
+            padding-top: 20px;
+            margin-top: 25px;
+            border-top: 1px dashed #A1887F;
+        }
+
+        .head-info {
+            margin-left: 20px;
+        }
+
+        .head-name {
+            font-weight: 600;
+            color: #5D4037;
+        }
+
+        .head-title {
+            font-size: 0.9rem;
+            color: #8D6E63;
+        }
+
+        .head-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #D7CCC8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #5D4037;
+        }
+
+        @media (max-width: 768px) {
+            .departments-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .intro-header {
+                padding: 80px 0 50px;
+            }
+            
+            .intro-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .department-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="../pics/logo.png" style="width: 60px;height: 60px; margin-top: 28px; margin-right: 1vw;">
+                </div>
+                <div class="logo-text">
+                    周行诗社
+                    <span class="logo-subtext">ZHOUHANG POETRY CLUB</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="intro.html"><i class="fas fa-history"></i> 诗社简介</a></li>
+                    <li><a href="#"><i class="fas fa-trophy"></i> 品牌活动</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> 社员作品</a></li>
+                    <li><a href="rhymebook/rusheng.html"><i class="fas fa-download"></i> 学术资源</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 简介页面头部 -->
+    <section class="intro-header">
+        <div class="container">
+            <h1>社团简介</h1>
+            <p>周行诗社成立于2021年，在吉林大学文学院指导下，形成了完善的组织架构和运营体系。诗社下设学术部、文宣部、秘书部和社刊编辑部四大部门，各部门分工明确，协同合作，共同推动诗社发展。</p>
+        </div>
+    </section>
+
+    <!-- 部门介绍内容 -->
+    <div class="intro-content">
+        <div class="departments-intro">
+            <h2>三大职能部门</h2>
+            <p>周行诗社的组织架构设计兼顾学术研究、宣传推广、日常运营和成果输出四大核心功能，各部门各司其职又紧密协作，形成了高效运转的有机整体，为诗社的持续发展和影响力提升提供了坚实的组织保障。</p>
+        </div>
+
+        <div class="departments-grid">
+            <!-- 学术部 -->
+            <div class="department-card">
+                <div class="department-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>学术部</h3>
+                <p>学术部是诗社的学术核心部门，负责诗社的学术研究、诗词创作指导和格律培训工作，提升社员诗词创作水平和理论素养。</p>
+                
+                <h4>主要职责：</h4>
+                <ul>
+                    <li>组织每周格律研习会，讲解诗词创作技巧</li>
+                    <li>编撰《诗词创作指南》等学习资料</li>
+                    <li>开展诗词创作工作坊，一对一指导社员创作</li>
+                    <li>负责"鸿鹄杯"创作大赛的评审工作</li>
+                    <li>建立诗词创作资源库，收集整理经典作品</li>
+                </ul>
+                
+                <div class="department-head">
+                    <div class="head-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="head-info">
+                        <div class="head-name">段宇琛</div>
+                        <div class="head-title">化学学院2023级本科生</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文宣部 -->
+            <div class="department-card">
+                <div class="department-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>文宣部</h3>
+                <p>文宣部负责诗社的对外宣传、形象塑造和活动推广，通过多种渠道展示诗社风采，扩大诗社影响力。</p>
+                
+                <h4>主要职责：</h4>
+                <ul>
+                    <li>运营诗社微信公众号、微博等新媒体平台</li>
+                    <li>设计制作活动海报、宣传册等宣传材料</li>
+                    <li>撰写新闻稿，报道诗社重要活动</li>
+                    <li>管理诗社官方网站内容更新</li>
+                    <li>组织校园诗词文化活动，推广诗词文化</li>
+                </ul>
+                
+                <div class="department-head">
+                    <div class="head-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="head-info">
+                        <div class="head-name">袁强</div>
+                        <div class="head-title">地探学院2023级本科生</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 秘书部 -->
+            <div class="department-card">
+                <div class="department-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>秘书部</h3>
+                <p>秘书部负责活动开展与日常事务管理、内外联络协调和资源调配，保障诗社高效运转。</p>
+                
+                <h4>主要职责：</h4>
+                <ul>
+                    <li>管理诗社档案、会议记录和文书工作</li>
+                    <li>组织安排诗社各类会议和日常活动</li>
+                    <li>管理诗社经费和物资</li>
+                    <li>协调各部门工作，促进内部沟通</li>
+                    <li>对接学校管理部门，处理行政事务</li>
+                </ul>
+                
+                <div class="department-head">
+                    <div class="head-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="head-info">
+                        <div class="head-name">张靖琦</div>
+                        <div class="head-title">历史文化学院2023级本科生</div>
+                    </div>
+                </div>
+            </div>
+<!-- 
+            <div class="department-card">
+                <div class="department-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>社刊编辑部</h3>
+                <p>社刊编辑部负责诗社刊物的策划、编辑和出版工作，将社员创作成果转化为高质量的文学刊物。</p>
+                
+                <h4>主要职责：</h4>
+                <ul>
+                    <li>编辑出版《北疆撷韵》年刊</li>
+                    <li>评选、编辑社员投稿作品</li>
+                    <li>设计刊物版式和美术风格</li>
+                    <li>组织专题征稿和特刊策划</li>
+                    <li>管理诗社作品数据库</li>
+                </ul>
+                
+                <div class="department-head">
+                    <div class="head-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="head-info">
+                        <div class="head-name">秦凤轩</div>
+                        <div class="head-title">数学学院2023级本科生</div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>周行诗社</h3>
+                    <p>吉林大学文学院下的学术社团<br>守正开新 · 诗之北疆</p>
+                    <p>传承中华诗词文化，培育诗意校园，为古典诗词在现代社会的传承与发展贡献力量。</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fas fa-bilibili"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 吉林省长春市吉林大学中心校区文学院</p>
+                        <p><i class="fas fa-phone"></i> 0431-8516XXXX</p>
+                        <p><i class="fas fa-envelope"></i> ZHOUHANG@jlu.edu.cn</p><!-- 
+                        <p><i class="fas fa-user"></i> 宋亿社长（行政学院2020级）</p> -->
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>订阅社刊</h3>
+                    <p>订阅《北疆撷韵》，每月获取最新诗社动态、社员作品、诗词赏析和创作技巧。</p>
+                    <form>
+                        <input type="email" placeholder="请输入您的邮箱" style="width:100%; padding:12px; margin:15px 0; border:1px solid var(--primary-light); background: rgba(255,255,255,0.1); color: white;">
+                        <button class="btn" style="width:100%">立即订阅</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 吉林大学周行诗社 版权所有 | 吉ICP备XXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏激活状态
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav a');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (currentPage === linkPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // 部门卡片悬停效果
+            const departmentCards = document.querySelectorAll('.department-card');
+            departmentCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
